@@ -2,8 +2,11 @@ package com.example.teste08
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnSubtrair: Button;
     lateinit var btnMultiplicar: Button;
     lateinit var btnDividir: Button;
-    lateinit var resultado: EditText;
+    lateinit var resultado: TextView;
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,5 +32,32 @@ class MainActivity : AppCompatActivity() {
         btnDividir = findViewById(R.id.btnDividir);
         resultado = findViewById(R.id.resultado);
 
+        btnSomar.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(p0: View?) {
+                var res = Integer.parseInt(campo1.text.toString()) + Integer.parseInt(campo2.text.toString())
+                resultado.text = res.toString()
+            }
+        });
+
+        btnSubtrair.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(p0: View?) {
+                var res = Integer.parseInt(campo1.text.toString()) - Integer.parseInt(campo2.text.toString())
+                resultado.text = res.toString()
+            }
+        });
+
+        btnMultiplicar.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(p0: View?) {
+                var res = Integer.parseInt(campo1.text.toString()) * Integer.parseInt(campo2.text.toString())
+                resultado.text = res.toString()
+            }
+        });
+
+        btnDividir.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(p0: View?) {
+                var res = Integer.parseInt(campo1.text.toString()) / Integer.parseInt(campo2.text.toString())
+                resultado.text = res.toString()
+            }
+        });
     }
 }
